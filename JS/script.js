@@ -1,11 +1,8 @@
-function ValidateEmail(email) 
-{
-        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-        return expr.test(email);
-
-
-
-};
+// function ValidateEmail(email) 
+// {
+//         var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+//         return expr.test(email);
+// };
 
 function mouseoverPass(obj) {
   var obj = document.getElementById('passcode');
@@ -82,13 +79,47 @@ function togglePassword(el){
         $('#pswd_info').hide();
     });
 
-    $("#submit_login").live("click", function () {
-        if (!ValidateEmail($("#emails").val())) {
-            alert("Invalid email address.");       
-        }
-        else{
-            //alert("Valid email address.");
-        }
-    });
+    // $("#submit_login").live("click", function () {
+    //     if (!ValidateEmail($("#emails").val())) {
+    //         alert("Invalid email address.");       
+    //     }
+    //     else{
+    //         //alert("Valid email address.");
+    //     }
+    // });
     
 });
+
+
+function submitLogin(){
+  
+ var validator = $("#login_form").validate({
+   errorClass: "my-error-class",
+   validClass: "my-valid-class",
+  rules: 
+  {                
+     emails:
+    {
+    required: true,
+    email: true,
+   },
+
+    passwords:
+    {
+      required:true,
+    },
+      
+},                                
+     messages: {
+      emails: {
+      required: "Enter your Email",
+      email: "Please enter a valid email address.",
+     },
+
+     passwords:{
+      required: " Please enter a valid password.",
+     }
+
+     },
+ });
+}

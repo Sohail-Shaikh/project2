@@ -29,13 +29,13 @@ class manage_list extends MySQLi_Db
 		public function user_list()
 		{			
 			$this->list.="<table border='1'><tr>".
-			"<tr>".
-			"<td bgcolor='#2EE2CA'>"."user no"."</td>".
-			"<td bgcolor='#2EE2CA'>"."FirstName"."</td>".
-			"<td bgcolor='#2EE2CA'>"."LastName". "</td>".
-			"<td bgcolor='#2EE2CA'>"."User Profile". "</td>".
-			"<td bgcolor='#2EE2CA'>"."Action". "</td>".    
-			"<td bgcolor='#2EE2CA'>"."Action". "</td>".
+			"<tr id='column'>".
+			"<td>"."user no"."</td>".
+			"<td>"."FirstName"."</td>".
+			"<td>"."LastName". "</td>".
+			"<td>"."User Profile". "</td>".
+			"<td>"."Action". "</td>".    
+			"<td>"."Action". "</td>".
 			"</tr>";
 			$q="SELECT user_no,FirstName,LastName,user_img FROM manage_list";
 			$result = parent::query($q);

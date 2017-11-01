@@ -16,7 +16,7 @@
 
 
 <?php
-//require_once('session_verify.php');
+require_once('session_verify.php');
 require('lists_function.php');
 
 	if(isset($detail))
