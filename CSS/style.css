@@ -1,0 +1,129 @@
+input[type=text], input[type=password],input[type=number],input[type=date], input[type=email],select, textarea {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 1px;
+    resize: ho;
+}
+
+
+input[type=radio],input[type=submit], input[type=reset],input[type=button],input[type=file]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.select {
+display:none;
+
+}
+
+.l1{
+
+    display: block;
+   overflow: hidden;
+   width: 120px;
+   
+}
+
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:895px;
+}
+#output_image
+{
+ max-width:300px;
+}
+
+
+#pswd_info {
+    background: #dfdfdf none repeat scroll 0 0;
+    color: #fff;
+    left: 20px;
+    position: absolute;
+    top: 115px;
+}
+#pswd_info h4{
+    background: black none repeat scroll 0 0;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding: 17px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#pswd_info ul {
+    list-style: outside none none;
+}
+#pswd_info ul li {
+   padding: 10px 45px;
+}
+
+
+
+.valid {
+    background: rgba(0, 0, 0, 0) url("https://dummyimage.com/25x25/1d55e3/00ff1e.png&text=%E2%9C%94") no-repeat scroll 2px 6px;
+    color: green;
+    line-height: 21px;
+    padding-left: 22px;
+}
+
+.invalid {
+    background: rgba(0, 0, 0, 0) url("https://dummyimage.com/25x25/1de37d/ff0000.png&text=%E2%9C%96") no-repeat scroll 2px 6px;
+    color: red;
+    line-height: 21px;
+    padding-left: 22px;
+}
+
+
+#pswd_info::before {
+    background: #dfdfdf none repeat scroll 0 0;
+    content: "";
+    height: 25px;
+    left: -13px;
+    margin-top: -12.5px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 25px;
+}
+#pswd_info {
+    display:none;
+}
+
+#showHide {
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+#showHideLabel {
+  float: left;
+  padding-left: 5px;
+}
+
+#toggleText {
+    padding-left:30px;
+}
+
+input[type=checkbox]{
+     padding-left:30px;
+}
+.my-error-class {
+    color:#FF0000;  /* red */
+}
+.my-valid-class {
+    color:#00CC00; /* green */
+}
