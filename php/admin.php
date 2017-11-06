@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<h1 align="center">Admin Login</h1>
@@ -42,7 +42,7 @@ if(isset($_POST['submit']))
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-	<script src="../JS/script.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>
 

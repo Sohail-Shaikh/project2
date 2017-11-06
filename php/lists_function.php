@@ -23,22 +23,19 @@ class manage_list extends MySQLi_Db
         	$this->lists ='';
         	$this->myemail ='';
         	$this->mypassword ='';
-        	parent::__construct();
+        	parent::__construct();     		
     	}
 
 		public function user_list()
-		{
-			$this->list.="<div class='table-responsive'>".
-			"<div class='container'>".
-			"<table class='table' border='1'>".
-			"<thead>".
+		{			
+			$this->list.="<table border='1'><tr>".
 			"<tr id='column'>".
-			"<th>"."user no"."</th>".
-			"<th>"."FirstName"."</th>".
-			"<th>"."LastName". "</th>".
-			"<th>"."User Profile". "</th>".
-			"<th>"."Action". "</th>".    
-			"<th>"."Action". "</th>".
+			"<td>"."user no"."</td>".
+			"<td>"."FirstName"."</td>".
+			"<td>"."LastName". "</td>".
+			"<td>"."User Profile". "</td>".
+			"<td>"."Action". "</td>".    
+			"<td>"."Action". "</td>".
 			"</tr>";
 			$q="SELECT user_no,FirstName,LastName,user_img FROM manage_list";
 			$result = parent::query($q);
@@ -61,14 +58,14 @@ class manage_list extends MySQLi_Db
 
 		public function user_search_list($data)
 		{
-			$this->lists.="<table class='table' border='1'><tr>".
+			$this->lists.="<table border='1'><tr>".
 			"<tr>".
-			"<th>"."user no"."</th>".
-			"<th>"."FirstName"."</th>".
-			"<th>"."LastName". "</th>".
-			"<th>"."User Profile". "</th>".
-			"<th>"."Action". "</th>".    
-			"<th>"."Action". "</th>".
+			"<td>"."user no"."</td>".
+			"<td>"."FirstName"."</td>".
+			"<td>"."LastName". "</td>".
+			"<td>"."User Profile". "</td>".
+			"<td>"."Action". "</td>".
+			"<td>"."Action". "</td>".
 			"</tr>";
 			$q="SELECT user_no,FirstName,LastName,user_img FROM manage_list WHERE FirstName LIKE '$data'";
 			$result = parent::query($q);
@@ -134,32 +131,32 @@ class manage_list extends MySQLi_Db
 		}
 
 		public function update(array $data)
-		{
+		{		
 			$checkbox1=$_POST['language'];
 			$data_lang=implode(",",$checkbox1);
 			$sql="UPDATE manage_list SET FirstName='".$data['update_fnamee']."',LastName='".$data['update_lnamee']."', user_city='".$data['update_city']."',user_mobile_no='".$data['emp_mo']."',user_email='".$data['user_email']."', user_dob='".$data['user_dob']."',user_lang='$data_lang',user_gender='".$data['update_gender']."',user_img='".$data['user_images']."' where user_no='".$data['user_noo']."'";
-			return $result=parent::query($sql);
+			return $result=parent::query($sql);		
 		}
 
 		public function update_img(array $data)
-		{
+		{	
 			$sql="update manage_list set user_img='".$data['user_image']."' where user_no='".$data['user_nooo']."'";
-			return $result=parent::query($sql);
+			return $result=parent::query($sql);			
 		}
 
 		public function create(array $data,$img)
-		{
+		{			
 			$data_lang=implode(",",$data['language']);
 			$sql="insert into manage_list (FirstName,LastName,user_gender,user_no,user_city,user_dob,user_mobile_no,user_email,user_img,user_lang)values('".$data['user_fname']."','".$data['user_lname']."','".$data['gender']."','".$data['user_noo']."','".$data['city']."','".$data['user_dob']."','".$data['user_mob']."','".$data['user_email']."','$img','$data_lang')";
 			return $result=parent::query($sql);	
 		}
 
 		public function display_Old_Data($data)
-		{
+		{				
 			$query="SELECT * FROM manage_list WHERE user_no='$data'";
 			$result = parent::query($query);
 			$this->row=mysqli_fetch_array($result);
-			return $this->row;
+			return $this->row;	
 		}
 
 		public function logout()

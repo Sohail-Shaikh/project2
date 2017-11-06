@@ -16,10 +16,10 @@ if(isset($_POST['submit-form']))
 	} 
 }
 
-if(isset($_POST['searching']))
+if(isset($_POST['query']))
 {
 	$users_list= new manage_list();
-	$results= $users_list->user_search_list($_POST['searching']);
+	$results= $users_list->user_search_list($_POST['query']);
 	if($results)
 	{
 		echo $results;

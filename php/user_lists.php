@@ -1,13 +1,7 @@
-
 <?php
 require_once('session_verify.php');
 require_once('lists_function.php');
 $users_list= new manage_list();
-if(isset($_GET['logout']))
-{
-	$users_list->logout();
-}
-
 if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
@@ -15,69 +9,69 @@ if(isset($_GET['id']))
 	$users_list->delete($id,$table);
 }
 
+if(isset($_POST['home']))
+{
+	header('Location: http://localhost:80/management_list/user_lists.php');
+}
 
+if(isset($_POST['add_user']))
+{
+	header('Location: http://localhost:80/management_list/user_register.php');
+}
+if(isset($_POST['logout']))
+{
+	$users_list->logout();
+}
 ?>
-<!DOCTYPE html>
 <html>
 <head>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-	<script src="../JS/ajax.js"></script>
-	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		</head>
-			<body>          
-                <center><h2 >Management List</h2></center>
-                <h4 align="right" style="color:#069"> Welcome <?php echo $user_check; ?></h4>
-                <nav class="navbar navbar-inverse">
-				  <div class="container-fluid">
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>                        
-				      </button>
-				      <a class="navbar-brand" href="#">Logo</a>
-				    </div>
-				    <div class="collapse navbar-collapse" id="myNavbar">
-				      <ul class="nav navbar-nav">
-				        <li class="active"><a href="user_lists.php">Home</a></li>
-				        <li><a href="?list=true">User List</a></li>
-				        <li><a href="user_register.php">Add User</a></li>				       
-				      </ul>
-				      <ul class="nav navbar-nav navbar-right">
-				        <li><a href="?logout=true""><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-				      </ul>
-				      	<form class="navbar-form" role="search" method="post">
-							<div class="input-group">
-								<input type="text" name="searching" id="searchKey" placeholder="Search user"  class="form-control pull-right" style="width: 300px; margin-right: 35px, border: 1px solid black; background-color: #e5e5e5;" placeholder="Search">
-								<span class="input-group-btn">
-									<button type="submit"  class="btn btn-default" onclick="search()">
-										
-										<span class="glyphicon glyphicon-search">
-											<span class="sr-only">Search</span>
-										</span>
-									</button>
-								</span>
-							</div>	
-						</form>
-				    </div>
-				  </div>
-				</nav>
-				<div class="container">	
-					 <div class="form-group">
-	                    <div id="search_output" class="col-sm-6">
-	                        
-	                        
-	                    </div>
-	                </div>											
-				</div>
-			</body>
+<title>List of user</title>
+<style>
+h2 {
+	
+   position:relative;
+	
+	top: 203px;
+    
+}
+.but {
+	left:1222px;
+	position:relative;
+
+}
+input[type=submit],input[type=reset],button{
+	background-color: #4CAF50;
+    color: white;
+    
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<h1> <center>Management List</center></h1>
+<form action="" method="POST">
+	<h4 align="right" style="color:#069">Welcome <?php echo $user_check; ?></h4>
+	<input type="submit" name="list" value='User List'>
+	<button class="right" name="home">Home</button><br><br>
+	<input type="text" id="searchKey" name="searching" placeholder="Search user" onchange ="search()">
+	<div id="output">
+	</div>
+	<button class="but" name="add_user" value="add_user">Add User</button>
+	<button class="but" name="logout" value="Logout">Logout</button>
+</form>
+<script type="text/javascript" src="ajax.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+</body>
 </html>
+
 <?php
 $users_list= new manage_list();
 
-
-if(isset($_GET['list']))
+if(isset($_POST['list']))
 {	
 	$list=$users_list->user_list();
 	if ($list) 
@@ -94,7 +88,25 @@ else
 	return false;
 }
 
+// if(isset($_POST['search']))
+// {	
+// 	$search=$_POST['search'];
+// 	$lists=$users_list->user_search_list($search);
+// 	if ($lists) 
+// 	{
+// 		echo $lists;
+// 	}
+// 	else
+// 	{
+// 		echo"error";
+// 	}
+// }
+// else
+// {
+// 	return false;
+// }
 
 ?>
+
 
 

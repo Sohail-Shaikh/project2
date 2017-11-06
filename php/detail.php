@@ -1,3 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="detail_style.css">
+</head>
+<body>
+<form method="GET">
+<input type="submit" value="back" name="backs">
+
+
+</form>
+</body>
+</html>
+
+
+
 <?php
 require_once('session_verify.php');
 require('lists_function.php');
@@ -9,7 +26,7 @@ require('lists_function.php');
 
 	if(isset($_REQUEST['backs']))
 	{
-		header('Location: http://localhost:80/management_list/php/user_lists.php');
+		header('Location: http://localhost:80/management_list/user_lists.php');
 	}
 
 	if(isset($_GET['id']))
@@ -20,23 +37,3 @@ require('lists_function.php');
 		$users_list->detail($id,$table);
 	}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-	<link rel="stylesheet" href="../CSS/detail_style.css">
-</head>
-<body>
-	<div class="container">
-		<form method="GET">
-			<div class="form-group">
-	            <div class="col-sm-3 col-sm-offset-3">
-	                <button  type="submit"  name="backs" value="back" class="btn btn-primary btn-lg pull-right">Back</button>
-	            </div>
-	        </div>
-	    </form>
-	</div>
-</body>
-</html>
-
-

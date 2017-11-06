@@ -75,8 +75,8 @@ function submitForm(){
       processData: false,
       contentType: false,
             success: function (data) {
-              alert('The User is Registered');
-              //console.log(data);
+              alert(data);
+              console.log(data);
             },
             error: function (data) {
                 console.log('An error occurred.');
@@ -138,20 +138,19 @@ function editForm(){
 
 function search() 
 {
+
   var query_value = $('#searchKey').val();
   if(query_value !== '')
   {
   $.ajax({
   type: "POST",
   url: "ajaxCallProcess.php",
-  data: { searching: query_value },
+  data: { query: query_value },
   cache: false,
   dataType: 'html',
-  success: function(data)
+  success: function(response)
     {
-     $("#search_output").html(data).show();
-       //alert(data);
-       console.log(data);    
+      $("#output").html(response);
      }
   });
   }
